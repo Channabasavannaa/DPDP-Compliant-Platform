@@ -1,29 +1,41 @@
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
-  const location = useLocation();
 
-  return (
-    <nav className="navbar">
-      <h2>Consent Manager</h2>
+    const location = useLocation();
 
-      <div>
-        <Link
-          className={location.pathname === "/" ? "active" : ""}
-          to="/"
-        >
-          Home
-        </Link>
+    return (
 
-        <Link
-          className={location.pathname === "/admin" ? "active" : ""}
-          to="/admin"
-        >
-          Admin
-        </Link>
-      </div>
-    </nav>
-  );
+        <nav className="navbar">
+
+            <div className="logo">
+
+                🛡 DPDP Platform
+
+            </div>
+
+            <div className="nav-links">
+
+                <Link
+                    to="/"
+                    className={location.pathname === "/" ? "active" : ""}
+                >
+                    Home
+                </Link>
+
+                <Link
+                    to="/admin"
+                    className={location.pathname === "/admin" ? "active" : ""}
+                >
+                    Admin
+                </Link>
+
+            </div>
+
+        </nav>
+
+    );
+
 }
 
 export default Navbar;

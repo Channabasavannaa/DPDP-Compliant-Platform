@@ -1,19 +1,32 @@
 import Navbar from "../components/Navbar";
 import UserForm from "../components/UserForm";
 
-function Home(){
+function Home() {
 
-    return(
+    return (
 
         <>
 
-        <Navbar/>
+            <Navbar />
 
-        <div className="container">
+            <div className="hero">
 
-            <UserForm/>
+                <h1>Digital Personal Data Protection Platform</h1>
 
-        </div>
+                <p>
+
+                    Securely collect, manage and revoke user consent in
+                    compliance with India's DPDP Act.
+
+                </p>
+
+            </div>
+
+            <div className="container">
+
+                <UserForm />
+
+            </div>
 
         </>
 
