@@ -1,12 +1,11 @@
 import { useState } from "react";
 import api from "../services/api";
 
-function UserForm({userData, setUserData,next}) {
+function Consent({ userData, back }) {
 
-    const [form, setForm] = useState({
-        full_name: "",
-        email: "",
-        phone: "",
+  const [form, setForm] = useState({
+        Age: "",
+        AadharID: "",
         consent: false
     });
 
@@ -32,26 +31,20 @@ function UserForm({userData, setUserData,next}) {
             const res=await api.post("/submit",form);
 
             setMessage(res.data.message);
-            setUserData(form);
+
             setForm({
-                full_name:"",
-                email:"",
-                phone:"",
-                consent:false
+                Age: "",
+                AadharID: "",
+                consent: false
             });
-            next();
+
         }
 
         catch(err){
 
             setMessage(err.response?.data?.message||"Something went wrong");
-            next();
+
         }
-
-        
-
-        
-         
 
     }
 
@@ -62,29 +55,21 @@ function UserForm({userData, setUserData,next}) {
             <h2>User Consent Form</h2>
 
             <input
-            name="full_name"
-            placeholder="Full Name"
-            value={form.full_name}
+            name="Age"
+            placeholder="Age"
+            value={form.Age}
             onChange={handleChange}
             required
             />
 
             <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            value={form.email}
+            name="AadharID"
+            placeholder="Aadhar ID"
+            value={form.AadharID}
             onChange={handleChange}
             required
             />
-
-            <input
-            name="phone"
-            placeholder="Phone Number"
-            value={form.phone}
-            onChange={handleChange}
-            required
-            />
+            
 
             <label className="checkbox">
 
@@ -99,7 +84,7 @@ function UserForm({userData, setUserData,next}) {
 
             </label>
 
-            <button type="submit">Next</button>
+            <button>Submit</button>
 
             {message && <p>{message}</p>}
 
@@ -109,4 +94,5 @@ function UserForm({userData, setUserData,next}) {
 
 }
 
-export default UserForm;
+
+export default Consent;

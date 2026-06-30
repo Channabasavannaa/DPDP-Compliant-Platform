@@ -10,7 +10,7 @@ function Navbar() {
 
             <div className="logo">
 
-                🛡 DPDP Platform
+                🛡 Digital Personal Data Protection Platform
 
             </div>
 
